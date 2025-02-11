@@ -1,5 +1,6 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -42,11 +43,11 @@ namespace WpfApp6.Pages
 					{
 						if (UpdateINI.ReadValue("Auth", "Email") == "NONE" || UpdateINI.ReadValue("Auth", "Password") == "NONE")
 						{
-							MessageBox.Show("Please Add Your Eon Info In Settings");
+							MessageBox.Show("Please Add Your Exit Info In Settings");
 							return;
 						}
 						WebClient OMG = new WebClient();
-						OMG.DownloadFile("https://cdn.discordapp.com/attachments/1125117879763865642/1125490815372890183/EonCurl.dll", Path.Combine(Path69, "Engine\\Binaries\\ThirdParty\\NVIDIA\\NVaftermath\\Win64", "GFSDK_Aftermath_Lib.x64.dll"));
+						OMG.DownloadFile("https://cdn.discordapp.com/attachments/1327478320123744276/1338741870074920980/Aurora.Runtime.dll?ex=67ac3006&is=67aade86&hm=ae202b3e08bca587a5eb0f544ca989d7a97f09c5acb0aa38e900640d0c58b94d&", Path.Combine(Path69, "Engine\\Binaries\\ThirdParty\\NVIDIA\\NVaftermath\\Win64", "GFSDK_Aftermath_Lib.x64.dll"));  //Your curl thing here!
 						//AntiCheat.Start(Path69);
 						PSBasics.Start(Path69, "-epicapp=Fortnite -epicenv=Prod -epiclocale=en-us -epicportal -noeac -fromfl=be -fltoken=h1cdhchd10150221h130eB56 -skippatchcheck", UpdateINI.ReadValue("Auth", "Email"), UpdateINI.ReadValue("Auth", "Password"));
 						FakeAC.Start(Path69, "FortniteClient-Win64-Shipping_BE.exe", $"-epicapp=Fortnite -epicenv=Prod -epiclocale=en-us -epicportal -noeac -fromfl=be -fltoken=h1cdhchd10150221h130eB56 -skippatchcheck", "r");
@@ -68,14 +69,20 @@ namespace WpfApp6.Pages
 					}
 					else
 					{
-						MessageBox.Show("Please Add Your Eon Info In Settings"); // INV
+						MessageBox.Show("Please Add Your Exit Info In Settings"); // INV
 					}
 				}
 			}catch (Exception ex)
 			{
-				MessageBox.Show("ERROR");
+				MessageBox.Show("ERROR, SERVERS OFFLINE!");
 			}
 			
 		}
-	}
+
+        private void Discord_Click(object sender, RoutedEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo("https://public.simplyblk.xyz/Fortnite%2012.41.zip") { UseShellExecute = true }); //your build here!
+        }
+    }
 }
+
